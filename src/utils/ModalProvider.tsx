@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from 'react';
 
-const ModalContext = createContext();
+const ModalContext = createContext({});
 
 export const useModal = () => {
   return useContext(ModalContext);
