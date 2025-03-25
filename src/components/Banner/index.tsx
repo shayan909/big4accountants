@@ -17,7 +17,7 @@ const Banner: React.FC<BannerProps> = ({ setIsOpen }) => {
     const [isVisible, setIsVisible] = useState(true);
 
     useEffect(() => {
-        const textToType = 'Trusted Tax & Finance Solutions';
+        const textToType = 'Welcome to B4A: A Finance and Accounting Society';
         if (index < textToType.length) {
             const timeout = setTimeout(() => {
                 setTypedText((prev) => prev + textToType[index]);
@@ -130,7 +130,7 @@ const Banner: React.FC<BannerProps> = ({ setIsOpen }) => {
                     transition={{ duration: 0.8, ease: 'easeOut' }}
                     className={tw`text-lg sm:text-xl max-w-3xl mx-auto mb-8 leading-relaxed text-gray-300`}
                 >
-                    Unlock financial freedom with tailored tax and finance solutions from our experienced team.
+                    We are connected with big financial consulting and advisory firms across the world, bridging the gap between professionals. Join us to share, learn and connect with your peers!
                 </motion.p>
 
                 {/* CTA Button */}
@@ -148,7 +148,7 @@ const Banner: React.FC<BannerProps> = ({ setIsOpen }) => {
                             focus:outline-none focus:ring-4 focus:ring-blue-400/50
                         `}
                     >
-                        Book an Appointment
+                        Join the Community
                     </button>
                 </motion.div>
             </motion.div>
