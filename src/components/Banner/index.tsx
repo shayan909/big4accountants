@@ -14,6 +14,7 @@ const Banner: React.FC<BannerProps> = ({ setIsOpen }) => {
     const count = useMotionValue(0);
     const rounded = useTransform(count, Math.round);
     const containerRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(true);
 
     useEffect(() => {
         const textToType = 'Trusted Tax & Finance Solutions';
@@ -34,6 +35,16 @@ const Banner: React.FC<BannerProps> = ({ setIsOpen }) => {
         return animation.stop;
     }, []);
 
+    // Intersection Observer to track visibility
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => setIsVisible(entry.isIntersecting),
+            { threshold: 0.2 }, // Trigger when 20% of the section is visible
+        );
+        if (containerRef.current) observer.observe(containerRef.current);
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <div
             id="banner"
@@ -46,28 +57,29 @@ const Banner: React.FC<BannerProps> = ({ setIsOpen }) => {
             }}
         >
             {/* Line Graph Animation */}
-            {/* Line Graph Animation */}
             <div className={tw`absolute inset-0 overflow-hidden pointer-events-none flex items-center justify-center`}>
                 <motion.div className={tw`absolute inset-0 flex items-center justify-center`}>
                     <svg viewBox="0 0 100 100" preserveAspectRatio="none" className={tw`w-full h-full`}>
                         {[
                             'M0,80 L20,40 L40,90 L60,50 L80,10 L100,60 L120,20',
                             'M0,60 C20,20 40,70 60,30 C80,70 100,20 120,60',
-                            'M0,70 L30,50 L50,95 L70,60 L90,20 L110,80 L130,40',
-                            'M0,50 C25,10 45,80 65,40 C85,90 105,30 125,70',
                         ].map((path, i) => (
                             <motion.path
                                 key={i}
                                 initial={{ pathLength: 0, opacity: 0 }}
-                                animate={{ pathLength: 1, opacity: [0, 0.1, 0] }} // Slightly dimmer
+                                animate={
+                                    isVisible
+                                        ? { pathLength: 1, opacity: [0, 0.1, 0] }
+                                        : { pathLength: 1, opacity: 0.1 } // Keep static on leave
+                                }
                                 transition={{
                                     duration: 6,
                                     delay: i * 7, // Staggered appearance
                                     ease: 'easeInOut',
-                                    repeat: Infinity,
+                                    repeat: isVisible ? Infinity : 0, // Stop repeating when not visible
                                 }}
                                 d={path}
-                                stroke={['#6b7280', '#9ca3af', '#4b5563', '#374151'][i]} // Soft gray-blue tones
+                                stroke={['#6b7280', '#9ca3af'][i]} // Soft gray-blue tones
                                 strokeWidth="0.5" // Thinner lines
                                 fill="none"
                             />
@@ -84,16 +96,20 @@ const Banner: React.FC<BannerProps> = ({ setIsOpen }) => {
                     <motion.div
                         key={i}
                         initial={{ height: 0, opacity: 0 }}
-                        animate={{
-                            height: [`${value}%`, `${value * 0.7}%`, `${value}%`], // Smooth up/down effect
-                            opacity: [0.2, 1, 0.2], // Subtle fade effect
-                        }}
+                        animate={
+                            isVisible
+                                ? {
+                                      height: [`${value}%`, `${value * 0.7}%`, `${value}%`],
+                                      opacity: [0.2, 1, 0.2],
+                                  }
+                                : { height: `${value}%`, opacity: 0.2 } // Keep static on leave
+                        }
                         transition={{
                             duration: 3,
-                            delay: i * 0.3, // Staggered effect
-                            repeat: Infinity, // Loop forever
-                            repeatType: 'mirror', // Smooth back-and-forth animation
-                            ease: 'easeInOut', // Professional smoothness
+                            delay: i * 0.3,
+                            repeat: isVisible ? Infinity : 0, // Stop repeating when not visible
+                            repeatType: 'mirror',
+                            ease: 'easeInOut',
                         }}
                         className={tw`w-16 bg-blue-500 rounded-t-lg shadow-lg`}
                     />
