@@ -17,7 +17,7 @@ const Page = ({ children }: IProps) => {
         <link rel="icon" href="/logo.svg" />
       </Head>
       <div className={tw(`min-h-screen flex flex-col`)}>
-        <Navigation setIsOpenContactUs={setIsOpenContactUs} />
+        <Navigation />
         <Contactusform isOpen={isOpenContactUs} setIsOpen={setIsOpenContactUs} />
 
         {children}
