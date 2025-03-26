@@ -11,11 +11,24 @@ import Footer from '@/components/footer';
 import Newsletter from '@/components/NewsLetter';
 import MagicalNumbers from '@/components/MagicalNumbers';
 import Testimonials from '@/components/Testimonials';
+import Head from 'next/head';
 
 const Home = () => {
     return (
         <Page>
-            <NextSeo title="Big4Accountants" description="Big 4 Accountants" />
+            <Head>
+                <link rel="preload" as="image" href="/services/Advisory Financial-Strategy.webp" />
+                <link rel="preload" as="image" href="/services/Taxation Compliance.webp" />
+                <link rel="preload" as="image" href="/services/Audit Risk-Management.webp" />
+                <link rel="preload" as="image" href="/services/Bookkeeping Outsourced-Finance.webp" />
+                <link rel="preload" as="image" href="/services/Financial Reports.webp" />
+                <link rel="preload" as="image" href="/services/Digital Transformation.webp" />
+                <link rel="preload" as="image" href="/services/Financing Funding-Assistance.webp" />
+            </Head>
+            <NextSeo
+                title=" Big4Accountants: Financial Consulting and Advisory Firm"
+                description="Welcome to Big4Accountants, one of the leading financial consulting and advisory firms. Explore our community and services and be a part of a revolution!"
+            />
             <Banner setIsOpen={() => {}} />
             <main>
                 <AboutUs />

@@ -2,52 +2,51 @@
 
 import { tw } from 'twind';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import { Briefcase, Cpu, HeartPulse, Factory, ShoppingCart, Building } from 'lucide-react';
 
 const industryCategories = [
     {
         category: 'Finance & Business',
         industries: ['Financial Services', 'Real Estate', 'Legal', 'Consulting'],
-        icon: '/icons/finance.svg',
-        gradient: 'from-blue-600 to-blue-800',
+        icon: <Briefcase size={32} />,
+        gradient: 'bg-gradient-to-br from-blue-600 to-red-800',
     },
     {
         category: 'Technology & Innovation',
         industries: ['Technology', 'Entertainment', 'Education', 'Telecom'],
-        icon: '/icons/technology.svg',
-        gradient: 'from-purple-600 to-purple-800',
+        icon: <Cpu size={32} />,
+        gradient: 'bg-gradient-to-br from-red-600 to-purple-800',
     },
     {
         category: 'Healthcare & Science',
         industries: ['Healthcare', 'Pharmaceuticals', 'Biotech', 'Medical Devices'],
-        icon: '/icons/healthcare.svg',
-        gradient: 'from-emerald-600 to-emerald-800',
+        icon: <HeartPulse size={32} />,
+        gradient: 'bg-gradient-to-br from-blue-600 to-green-800',
     },
     {
         category: 'Manufacturing & Infrastructure',
         industries: ['Manufacturing', 'Construction', 'Energy', 'Automotive'],
-        icon: '/icons/manufacturing.svg',
-        gradient: 'from-amber-600 to-amber-800',
+        icon: <Factory size={32} />,
+        gradient: 'bg-gradient-to-br from-blue-600 to-yellow-800',
     },
     {
         category: 'Retail & Hospitality',
         industries: ['Retail', 'Hospitality', 'Transportation', 'Logistics'],
-        icon: '/icons/retail.svg',
-        gradient: 'from-rose-600 to-rose-800',
+        icon: <ShoppingCart size={32} />,
+        gradient: 'bg-gradient-to-br from-red-600 to-purple-800',
     },
     {
         category: 'Public Sector',
         industries: ['Government', 'Non-Profit', 'Education', 'Utilities'],
-        icon: '/icons/public-sector.svg',
-        gradient: 'from-indigo-600 to-indigo-800',
+        icon: <Building size={32} />,
+        gradient: 'bg-gradient-to-br from-green-600 to-indigo-800',
     },
 ];
 
 const Industries = () => {
     return (
-        <section className={tw(`py-28 bg-white text-gray-900`)}>
+        <section className={tw(`py-28  text-gray-900`)}>
             <div className={tw(`max-w-7xl mx-auto px-6`)}>
-                {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -61,7 +60,6 @@ const Industries = () => {
                     </p>
                 </motion.div>
 
-                {/* Industry Categories */}
                 <div className={tw(`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8`)}>
                     {industryCategories.map((category, index) => (
                         <motion.div
@@ -72,35 +70,20 @@ const Industries = () => {
                             viewport={{ once: true, margin: '-50px' }}
                             whileHover={{ y: -8 }}
                             className={tw(`
-                bg-white rounded-xl p-6
-                border border-gray-200
-                shadow-sm hover:shadow-md
-                transition-all duration-300
-                flex flex-col
-              `)}
+                                rounded-xl p-6 shadow-md text-white
+                                ${category.gradient}
+                                flex flex-col transition-all duration-300
+                            `)}
                         >
                             <div className={tw(`flex items-center mb-6`)}>
-                                <div
-                                    className={tw(
-                                        `w-14 h-14 rounded-lg bg-gradient-to-br ${category.gradient} flex items-center justify-center mr-4`,
-                                    )}
-                                >
-                                    <div className={tw(`w-8 h-8 relative`)}>
-                                        <Image
-                                            src={category.icon}
-                                            alt={category.category}
-                                            fill
-                                            className={tw(`object-contain filter brightness-0 invert`)}
-                                        />
-                                    </div>
-                                </div>
+                                <div className={tw(`mr-4`)}>{category.icon}</div>
                                 <h3 className={tw(`text-xl font-semibold`)}>{category.category}</h3>
                             </div>
 
-                            <ul className={tw(`space-y-3 text-gray-600`)}>
+                            <ul className={tw(`space-y-3`)}>
                                 {category.industries.map((industry, idx) => (
                                     <li key={idx} className={tw(`flex items-center`)}>
-                                        <span className={tw(`w-2 h-2 rounded-full bg-blue-500 mr-3`)}></span>
+                                        <span className={tw(`w-2 h-2 rounded-full bg-white mr-3`)}></span>
                                         {industry}
                                     </li>
                                 ))}
@@ -109,7 +92,6 @@ const Industries = () => {
                     ))}
                 </div>
 
-                {/* CTA */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -119,11 +101,11 @@ const Industries = () => {
                 >
                     <button
                         className={tw(`
-            px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-800
-            rounded-lg text-white font-medium text-lg
-            hover:shadow-lg transition-all duration-300
-            inline-flex items-center
-          `)}
+                            px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-800
+                            rounded-lg text-white font-medium text-lg
+                            hover:shadow-lg transition-all duration-300
+                            inline-flex items-center
+                        `)}
                     >
                         Explore Industry Solutions
                         <svg className={tw(`ml-2 w-5 h-5`)} fill="none" stroke="currentColor" viewBox="0 0 24 24">

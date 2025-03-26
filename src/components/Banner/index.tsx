@@ -36,10 +36,7 @@ const Banner: React.FC<BannerProps> = ({ setIsOpen }) => {
     }, []);
 
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => setIsVisible(entry.isIntersecting),
-            { threshold: 0.2 },
-        );
+        const observer = new IntersectionObserver(([entry]) => setIsVisible(entry.isIntersecting), { threshold: 0.2 });
         if (containerRef.current) observer.observe(containerRef.current);
         return () => observer.disconnect();
     }, []);
@@ -118,16 +115,17 @@ const Banner: React.FC<BannerProps> = ({ setIsOpen }) => {
                     transition={{ duration: 0.8, ease: 'backOut' }}
                     className={tw`text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-wide`}
                 >
-                    <span className={tw`text-blue-400`}>{typedText.substring(0, 13)}</span>
-                    {typedText.substring(13)}
-                    <span className={tw`text-blue-400`}>|</span>
+                    <span className={tw`text-blue-400`}>{typedText.substring(0, 14)}</span>
+                    {typedText.substring(14, 16)}
+                    {typedText.substring(16)} <span className={tw`text-blue-400`}>|</span>
                 </motion.h1>
 
                 <motion.p
                     transition={{ duration: 0.8, ease: 'easeOut' }}
                     className={tw`text-lg sm:text-xl max-w-5xl mx-auto mb-8 leading-relaxed text-gray-300`}
                 >
-                    We are connected with big financial consulting and advisory firms across the world, bridging the gap between professionals. Join us to share, learn and connect with your peers!
+                    We are connected with big financial consulting and advisory firms across the world, bridging the gap
+                    between professionals. Join us to share, learn and connect with your peers!
                 </motion.p>
 
                 <motion.div

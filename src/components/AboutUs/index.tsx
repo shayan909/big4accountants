@@ -11,6 +11,15 @@ const partnerLogos = [
     { name: 'KPMG', src: '/logos/kpmg.png' },
 ];
 
+const logoVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (index) => ({
+        opacity: 1,
+        y: 0,
+        transition: { delay: index * 0.2, duration: 0.6, ease: 'easeOut' },
+    }),
+};
+
 const AboutUs = () => (
     <section className={tw(`py-20 bg-white`)}>
         <div className={tw(`max-w-7xl mx-auto px-6`)}>
@@ -87,21 +96,19 @@ const AboutUs = () => (
                 </motion.h3>
 
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{
-                        staggerChildren: 0.1,
-                        delayChildren: 0.3,
-                    }}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
                     className={tw(`flex flex-wrap justify-center gap-8 md:gap-16`)}
                 >
                     {partnerLogos.map((logo, index) => (
                         <motion.div
                             key={index}
-                            variants={{
-                                hidden: { opacity: 0, y: 20 },
-                                visible: { opacity: 1, y: 0 },
-                            }}
+                            variants={logoVariants}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            custom={index}
                             whileHover={{
                                 scale: 1.1,
                                 transition: { duration: 0.3 },

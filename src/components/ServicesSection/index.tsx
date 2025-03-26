@@ -72,7 +72,7 @@ const services = [
             'Predictive analytics',
             'Scenario modeling',
         ],
-        image: '/images/case-1.webp',
+        image: '/services/Financial Reports.webp',
         icon: '📊',
     },
     {
@@ -86,7 +86,7 @@ const services = [
             'Workflow automation',
             'System integration',
         ],
-        image: '/images/case-2.webp',
+        image: '/services/Digital Transformation.webp',
         icon: '💻',
     },
     {
@@ -184,14 +184,14 @@ const ServicesSection = () => {
 
                     {/* Image Container - Fixed Position */}
                     <div className={tw(`lg:w-1/2 hidden lg:block`)}>
-                        <div className={tw(`sticky top-32 h-[300px]`)}>
+                        <div className={tw(`sticky top-32 h-[400px]`)}>
                             <AnimatePresence mode="wait">
                                 <motion.div
                                     key={activeService.id}
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
-                                    transition={{ duration: 0.1 }}
+                                    transition={{ duration: 0.2 }}
                                     className={tw(`relative w-full h-full rounded-2xl overflow-hidden shadow-2xl`)}
                                 >
                                     <Image
