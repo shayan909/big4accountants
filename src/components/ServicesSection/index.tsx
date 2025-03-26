@@ -17,7 +17,7 @@ const services = [
             'Strategic financial planning and modeling',
             'Capital raising and investor relations',
         ],
-        image: '/images/Know-your-inventory.webp',
+        image: '/services/Advisory Financial-Strategy.webp',
         icon: '📈',
     },
     {
@@ -31,7 +31,7 @@ const services = [
             'Payroll tax optimization',
             'Tax controversy representation',
         ],
-        image: '/images/Free-trial.webp',
+        image: '/services/Taxation Compliance.webp',
         icon: '🧾',
     },
     {
@@ -45,7 +45,7 @@ const services = [
             'Fraud risk management',
             'Regulatory compliance audits',
         ],
-        image: '/images/Plastics.webp',
+        image: '/services/Audit Risk-Management.webp',
         icon: '🔍',
     },
     {
@@ -59,7 +59,7 @@ const services = [
             'Cash flow management',
             'Virtual CFO services',
         ],
-        image: '/images/Returns.webp',
+        image: '/services/Bookkeeping Outsourced-Finance.webp',
         icon: '📚',
     },
     {
@@ -99,7 +99,7 @@ const services = [
             'Investor pitch preparation',
             'Capital structure optimization',
         ],
-        image: '/images/case-3.webp',
+        image: '/services/Financing Funding-Assistance.webp',
         icon: '💰',
     },
 ];
@@ -191,7 +191,7 @@ const ServicesSection = () => {
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
-                                    transition={{ duration: 0.5 }}
+                                    transition={{ duration: 0.1 }}
                                     className={tw(`relative w-full h-full rounded-2xl overflow-hidden shadow-2xl`)}
                                 >
                                     <Image

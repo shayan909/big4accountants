@@ -35,11 +35,10 @@ const Banner: React.FC<BannerProps> = ({ setIsOpen }) => {
         return animation.stop;
     }, []);
 
-    // Intersection Observer to track visibility
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => setIsVisible(entry.isIntersecting),
-            { threshold: 0.2 }, // Trigger when 20% of the section is visible
+            { threshold: 0.2 },
         );
         if (containerRef.current) observer.observe(containerRef.current);
         return () => observer.disconnect();
@@ -53,10 +52,9 @@ const Banner: React.FC<BannerProps> = ({ setIsOpen }) => {
             style={{
                 backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
                           linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)`,
-                backgroundSize: '40px 40px', // Grid cell size
+                backgroundSize: '40px 40px',
             }}
         >
-            {/* Line Graph Animation */}
             <div className={tw`absolute inset-0 overflow-hidden pointer-events-none flex items-center justify-center`}>
                 <motion.div className={tw`absolute inset-0 flex items-center justify-center`}>
                     <svg viewBox="0 0 100 100" preserveAspectRatio="none" className={tw`w-full h-full`}>
@@ -70,17 +68,17 @@ const Banner: React.FC<BannerProps> = ({ setIsOpen }) => {
                                 animate={
                                     isVisible
                                         ? { pathLength: 1, opacity: [0, 0.1, 0] }
-                                        : { pathLength: 1, opacity: 0.1 } // Keep static on leave
+                                        : { pathLength: 1, opacity: 0.1 }
                                 }
                                 transition={{
                                     duration: 6,
-                                    delay: i * 7, // Staggered appearance
+                                    delay: i * 7,
                                     ease: 'easeInOut',
-                                    repeat: isVisible ? Infinity : 0, // Stop repeating when not visible
+                                    repeat: isVisible ? Infinity : 0,
                                 }}
                                 d={path}
-                                stroke={['#6b7280', '#9ca3af'][i]} // Soft gray-blue tones
-                                strokeWidth="0.5" // Thinner lines
+                                stroke={['#6b7280', '#9ca3af'][i]}
+                                strokeWidth="0.5"
                                 fill="none"
                             />
                         ))}
@@ -88,7 +86,6 @@ const Banner: React.FC<BannerProps> = ({ setIsOpen }) => {
                 </motion.div>
             </div>
 
-            {/* Animated Bar Graph (Below Button) */}
             <motion.div
                 className={tw`absolute bottom-0 left-0 right-0 flex justify-center items-end h-1/3 gap-4 px-20`}
             >
@@ -102,12 +99,12 @@ const Banner: React.FC<BannerProps> = ({ setIsOpen }) => {
                                       height: [`${value}%`, `${value * 0.7}%`, `${value}%`],
                                       opacity: [0.2, 1, 0.2],
                                   }
-                                : { height: `${value}%`, opacity: 0.2 } // Keep static on leave
+                                : { height: `${value}%`, opacity: 0.2 }
                         }
                         transition={{
                             duration: 3,
                             delay: i * 0.3,
-                            repeat: isVisible ? Infinity : 0, // Stop repeating when not visible
+                            repeat: isVisible ? Infinity : 0,
                             repeatType: 'mirror',
                             ease: 'easeInOut',
                         }}
@@ -116,24 +113,23 @@ const Banner: React.FC<BannerProps> = ({ setIsOpen }) => {
                 ))}
             </motion.div>
 
-            {/* Main Content */}
-            <motion.div className={tw`relative z-20 max-w-4xl mx-auto px-6 text-white`}>
+            <motion.div className={tw`relative z-20 max-w-6xl mx-auto px-6 text-white`}>
                 <motion.h1
                     transition={{ duration: 0.8, ease: 'backOut' }}
                     className={tw`text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-wide`}
                 >
-                    {typedText}
+                    <span className={tw`text-blue-400`}>{typedText.substring(0, 13)}</span>
+                    {typedText.substring(13)}
                     <span className={tw`text-blue-400`}>|</span>
                 </motion.h1>
 
                 <motion.p
                     transition={{ duration: 0.8, ease: 'easeOut' }}
-                    className={tw`text-lg sm:text-xl max-w-3xl mx-auto mb-8 leading-relaxed text-gray-300`}
+                    className={tw`text-lg sm:text-xl max-w-5xl mx-auto mb-8 leading-relaxed text-gray-300`}
                 >
                     We are connected with big financial consulting and advisory firms across the world, bridging the gap between professionals. Join us to share, learn and connect with your peers!
                 </motion.p>
 
-                {/* CTA Button */}
                 <motion.div
                     transition={{ duration: 0.6, ease: 'easeOut' }}
                     className={tw`flex justify-center gap-4 flex-wrap`}

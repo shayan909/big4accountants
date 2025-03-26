@@ -5,10 +5,10 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const partnerLogos = [
-    { name: 'PwC', src: '/logos/pwc.svg' },
-    { name: 'EY', src: '/logos/ey.svg' },
-    { name: 'Deloitte', src: '/logos/deloitte.svg' },
-    { name: 'KPMG', src: '/logos/kpmg.svg' },
+    { name: 'PwC', src: '/logos/pwc.png' },
+    { name: 'EY', src: '/logos/ey.png' },
+    { name: 'Deloitte', src: '/logos/deloitte.png' },
+    { name: 'KPMG', src: '/logos/kpmg.png' },
 ];
 
 const AboutUs = () => (
