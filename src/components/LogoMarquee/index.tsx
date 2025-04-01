@@ -20,7 +20,7 @@ const LogoMarquee = () => {
         if (!scrollContainer) return;
 
         let scrollAmount = 0;
-        const speed = 0.3; // Smooth, professional scrolling
+        const speed = 1; // Smooth, professional scrolling
 
         const scroll = () => {
             scrollAmount += speed;

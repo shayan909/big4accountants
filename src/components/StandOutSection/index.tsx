@@ -1,129 +1,65 @@
 'use client';
 
-import Image from 'next/image';
 import { tw } from 'twind';
-import { motion } from 'framer-motion';
-import { CheckCircle } from 'lucide-react';
 
-const StandOutSection = () => {
+export default function ServicesSection() {
     return (
-        <section className={tw(`w-full py-28 px-6 bg-white text-gray-900`)}>
-            <div className={tw(`max-w-7xl mx-auto`)}>
-                {/* Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className={tw(`text-center mb-20`)}
-                >
-                    <h2 className={tw(`text-4xl md:text-5xl font-bold mb-6`)}>How We Stand Out</h2>
-                    <div className={tw(`w-24 h-1 bg-blue-600 mx-auto mb-8`)}></div>
-                    <p className={tw(`text-xl text-gray-600 max-w-3xl mx-auto`)}>
-                        Distinctive advantages that set us apart in the financial services landscape
+        <section className={tw`relative py-32 bg-white text-white font-satoshi`}>
+            {' '}
+            {/* Increased section height */}
+            <div className={tw`max-w-7xl mx-auto flex items-center gap-8`}>
+                {/* Left Text */}
+                <div className={tw`flex-1 text-left`} style={{ transform: 'translateY(-120px)' }}>
+                    <h2 className={tw`text-5xl font-bold leading-tight text-[#050505] font-satoshi`}>
+                        {/* Bigger heading */}
+                        <div>How We Are</div>
+                        <div>Stands Out</div>
+                        <div className={tw`mt-2`}>From Others</div> {/* Adjusted position */}
+                    </h2>
+                    <p className={tw`text-[#474747] mt-4 max-w-md font-satoshi`}>
+                        Our biggest edge is that, through our association with big names in the finance world, we are
+                        privy to emerging trends, technologies, and best practices that come with each region and
+                        industry. We use our network to stay ahead of the curve!
                     </p>
-                </motion.div>
+                </div>
 
-                {/* Content */}
-                <div className={tw(`flex flex-col lg:flex-row gap-16 items-center`)}>
-                    {/* Text Content */}
-                    <div className={tw(`lg:w-1/2`)}>
-                        <motion.div
-                            initial={{ opacity: 0, x: -40 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6 }}
-                            viewport={{ once: true }}
-                            className={tw(`space-y-8`)}
-                        >
-                            <div className={tw(`flex items-start gap-4`)}>
-                                <div className={tw(`w-12 h-12 flex items-center justify-center text-blue-600`)}>
-                                    <CheckCircle size={48} strokeWidth={1.5} />
-                                </div>
-                                <div>
-                                    <h3 className={tw(`text-2xl font-semibold mb-3`)}>Industry-Leading Network</h3>
-                                    <p className={tw(`text-gray-600`)}>
-                                        Through our association with big names in finance, we access emerging trends,
-                                        technologies, and regional best practices to keep you ahead.
-                                    </p>
-                                </div>
-                            </div>
+                {/* Center Image */}
+                <div className={tw`flex-shrink-0 w-2/5`}>
+                    <img
+                        src="/standsout/standsout.png"
+                        alt="Business Team"
+                        className={tw`w-full h-[756px] object-cover rounded-[100px]`} /* Increased height */
+                    />
+                </div>
 
-                            <div className={tw(`flex items-start gap-4`)}>
-                                <div className={tw(`w-12 h-12 flex items-center justify-center text-blue-600`)}>
-                                    <CheckCircle size={48} strokeWidth={1.5} />
-                                </div>
-                                <div>
-                                    <h3 className={tw(`text-2xl font-semibold mb-3`)}>Innovative Approach</h3>
-                                    <p className={tw(`text-gray-600`)}>
-                                        Combining deep expertise with cutting-edge technology for unmatched financial
-                                        solutions that prioritize precision, transparency, and innovation.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className={tw(`
-                  mt-6 px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-800
-                  text-white font-medium rounded-lg
-                  hover:shadow-lg transition-all duration-300
-                  inline-flex items-center
-                `)}
-                            >
-                                Learn More
-                                <svg
-                                    className={tw(`ml-2 w-5 h-5`)}
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        d="M9 5l7 7-7 7"
-                                    ></path>
-                                </svg>
-                            </motion.button>
-                        </motion.div>
-                    </div>
-
-                    {/* Image Container with Two Images */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                        className={tw(`lg:w-1/2 relative h-[400px]`)}
+                {/* Right Text */}
+                <div
+                    className={tw`flex-1 text-left flex flex-col justify-center`}
+                    style={{ transform: 'translateY(50px)' }}
+                >
+                    {' '}
+                    {/* Center aligned */}
+                    <h3
+                        className={tw`text-3xl font-bold text-center mt-24 font-satoshi`}
+                        style={{ color: 'rgba(4, 8, 234, 1)', textAlign: 'left' }}
                     >
-                        {/* Large Image */}
-                        <div className={tw(`absolute inset-0 rounded-2xl overflow-hidden shadow-2xl`)}>
-                            <Image
-                                src="/standout2.png"
-                                alt="Financial network"
-                                fill
-                                className={tw(`object-cover`)}
-                                priority
-                            />
-                            <div className={tw(`absolute inset-0 bg-gradient-to-t from-black/30 to-transparent`)}></div>
-                        </div>
-
-                        {/* Small Overlapping Image */}
-                        <motion.div
-                            whileHover={{ scale: 1.05 }}
-                            className={tw(
-                                `absolute -bottom-8 -right-8 w-[45%] h-[60%] rounded-xl overflow-hidden shadow-xl border-4 border-white z-10`,
-                            )}
+                        Our Approach To Our Services
+                    </h3>
+                    <p className={tw`text-gray-300 mt-4 text-left max-w-md mx-auto text-[rgb(71,71,71)] font-satoshi`}>
+                        Combines deep industry expertise with cutting-edge technology to provide businesses with
+                        unmatched financial solutions. We prioritize precision, transparency, and innovation, ensuring
+                        our clients remain financially secure and ahead of the competition.
+                    </p>
+                    <div className={tw`mt-6 text-left`}>
+                        <a
+                            href="#"
+                            className={tw`bg-[rgba(4,8,234,1)] text-white px-6 py-3 rounded-[100px] font-bold font-satoshi text-center`}
                         >
-                            <Image src="/standout1.png" alt="Technology" fill className={tw(`object-cover`)} />
-                            <div className={tw(`absolute inset-0 bg-gradient-to-t from-black/20 to-transparent`)}></div>
-                        </motion.div>
-                    </motion.div>
+                            Learn More
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
     );
-};
-
-export default StandOutSection;
+}

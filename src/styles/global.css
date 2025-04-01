@@ -1,9 +1,25 @@
 @import '@fontsource/inter/400.css';
 @import '@fontsource/inter/500.css';
 @import '@fontsource/inter/700.css';
+@import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@300;400;500;700&display=swap');
 /* slick-carousel styles */
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Regular.woff2') format('woff2'),
+       url('/fonts/Satoshi-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Bold.woff2') format('woff2'),
+       url('/fonts/Satoshi-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
 
 /* styles/globals.css */
 /* Place all your global styles here, including animations or any global styles you need. */

@@ -12,6 +12,7 @@ import Newsletter from '@/components/NewsLetter';
 import MagicalNumbers from '@/components/MagicalNumbers';
 import Testimonials from '@/components/Testimonials';
 import Head from 'next/head';
+import ServicesSectionTwo from '@/components/ServiceSectionTwo';
 
 const Home = () => {
     return (
@@ -34,6 +35,7 @@ const Home = () => {
                 <AboutUs />
                 <ServicesSection />
                 <LogoMarquee />
+                <ServicesSectionTwo />
                 <StandOutSection />
                 <MagicalNumbers />
                 <Testimonials />
