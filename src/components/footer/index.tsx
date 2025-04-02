@@ -1,15 +1,15 @@
 import { tw } from 'twind';
-import { Linkedin, Instagram, Facebook, Mail, Phone, MapPin, X } from 'lucide-react'; // Replaced TwitterIcon with X
+import { Linkedin, Instagram, Facebook, Mail, Phone, MapPin, X, TwitterIcon } from 'lucide-react'; // Replaced TwitterIcon with X
 
 const Footer = () => (
     <footer className={tw`bg-[rgba(26,26,26,1)] text-white pt-16 pb-0 relative`}>
         <div
             className={tw`mx-[10px] -mt-[44px] rounded-t-[20px] p-[2px]`}
-                style={{
-                    background: 'linear-gradient(180deg, #198DFD -16.06%, rgba(62, 45, 180, 0.16) 100%)',
-                    borderBottom: 'none',
-                    paddingBottom: 'unset',
-                }}
+            style={{
+                background: 'linear-gradient(180deg, #198DFD -16.06%, rgba(62, 45, 180, 0.16) 100%)',
+                borderBottom: 'none',
+                paddingBottom: 'unset',
+            }}
         >
             <div className={tw`bg-[rgba(26,26,26,1)] rounded-t-[18px] p-6`}>
                 <div className={tw`max-w-7xl mx-auto px-6 lg:px-12`} style={{ paddingTop: '5rem' }}>
@@ -21,7 +21,11 @@ const Footer = () => (
                             <p className={tw`text-lg font-semibold mb-3 text-white mt-8 mb-9`}>Follow On</p>
                             {/* Made the "Follow On" text larger and bolder */}
                             <div className={tw`flex space-x-2 mt-4`}>
-                                <X className={tw`text-white hover:text-blue-500 cursor-pointer`} size={22} />
+                                <TwitterIcon
+                                    fill="white"
+                                    className={tw`text-white hover:text-blue-500 cursor-pointer`}
+                                    size={22}
+                                />
                                 {/* Replaced Twitter with X */}
                                 <Linkedin className={tw`text-white hover:text-blue-500 cursor-pointer`} size={22} />
                                 <Instagram className={tw`text-white hover:text-blue-500 cursor-pointer`} size={22} />
