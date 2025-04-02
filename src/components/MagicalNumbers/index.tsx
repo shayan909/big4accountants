@@ -42,7 +42,7 @@ const MagicalNumbers = () => {
                 viewport={{ once: true }}
                 className={tw`mb-20 relative z-10`}
             >
-                <h2 className={tw`text-5xl lg:text-5xl font-bold mb-4`}>The Magical Numbers</h2>
+                <h2 className={tw`text-6xl lg:text-6xl font-bold mb-4`}>The Magical Numbers</h2>
                 <p className={tw`text-xl text max-w-1xl mx-auto`}>
                     Numbers Don't Lie. Hear The Story Of Our Success From Our Magical Numbers.
                 </p>

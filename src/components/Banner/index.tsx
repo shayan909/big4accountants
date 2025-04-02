@@ -100,7 +100,7 @@ const Banner: React.FC<BannerProps> = ({ setIsOpen }) => {
                     variants={childVariants}
                     transition={{ duration: 0.8, ease: 'backOut' }}
                     className={tw`
-                        text-5xl sm:text-6xl lg:text-6xl font-semibold leading-tight mb-4 
+                        text-6xl sm:text-6xl lg:text-6xl font-semibold leading-tight mb-4 
                         tracking-wide text-white
                     `}
                 >

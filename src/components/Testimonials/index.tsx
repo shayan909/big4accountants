@@ -98,7 +98,7 @@ const Testimonials = () => {
                     variants={fadeUp}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className={tw`text-7xl md:text-7xl font-bold text-center mb-12 text-gray-800 font-satoshi`}
+                    className={tw`text-6xl md:text-6xl font-bold text-center mb-12 text-gray-800 font-satoshi`}
                 >
                     What Our Clients Say
                 </motion.h2>

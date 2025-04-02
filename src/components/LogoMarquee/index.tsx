@@ -59,7 +59,7 @@ const LogoMarquee = () => {
         <section className={tw`relative py-20`}>
             {/* Section Header */}
             <div className={tw`text-center mb-12`}>
-                <h2 className={tw`text-4xl md:text-5xl font-bold text-gray-900`}>Our Technology Partners</h2>
+                <h2 className={tw`text-6xl md:text-6xl font-bold text-gray-900`}>Our Technology Partners</h2>
                 <p className={tw`text-lg text-gray-600 mt-4 max-w-2xl mx-auto`}>
                     Collaborating with industry-leading technology providers to empower businesses with world-class
                     solutions.
