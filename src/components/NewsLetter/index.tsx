@@ -2,53 +2,41 @@ import { tw } from 'twind';
 
 const Newsletter = () => {
     return (
-        <div className={tw`bg-black py-16 flex justify-center`}>
+        <div className={tw`bg-[rgba(26,26,26,1)] py-16 flex justify-center font-[Satoshi]`}>
+            {/* Newsletter Box with Background Image and Gradient Border */}
             <div
-                className={tw`w-full max-w-3xl p-12 rounded-2xl shadow-xl text-center relative`}
+                className={tw`w-full p-12 rounded-3xl shadow-xl text-center relative mt-11 mb-0 pb-0`}
                 style={{
-                    background: 'linear-gradient(180deg, #050505 32.01%, #0417EA 100%)', // Rectangle 5 gradient
-                    zIndex: 0,
-                    boxShadow: '0px 4px 30px rgba(0, 0, 0, 0.25)', // Rectangle 5 shadow
-                    backdropFilter: 'blur(7px)', // Rectangle 5 backdrop filter
+                    backgroundImage: "url('/newsletter/newsletter.png')", // Your image path
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                    borderRadius: '20px', // Rounded corners
+                    borderImageSlice: 1, // Ensures full coverage
+                    overflow: 'hidden',
+                    maxWidth: '69rem',
+                    height: '23rem',
                 }}
             >
-                {/* Overlay Gradient from Rectangle 5 */}
-                <div
-                    className={tw`absolute inset-0 rounded-2xl`}
-                    style={{
-                        boxSizing: 'border-box',
-                        background: 'linear-gradient(180deg, #050505 32.01%, #0417EA 100%)',
-                        boxShadow: '0px 4px 30px rgba(0, 0, 0, 0.25)', // Rectangle 6 shadow
-                        backdropFilter: 'blur(7px)',
-                        borderRadius: '20px',
-                        zIndex: -1,
-                    }}
-                ></div>
-
-                {/* Bottom Solid Layer from Rectangle 9 */}
-                <div
-                    className={tw`absolute inset-0 bg-[#1A1A1A] rounded-2xl`}
-                    style={{
-                        zIndex: -2, // Push it behind the other layers
-                    }}
-                ></div>
-
-                <h2 className={tw`text-white text-3xl font-semibold mb-4`}>Subscribe to Our Newsletter</h2>
-                <p className={tw`text-gray-400 text-base mb-6 max-w-lg mx-auto`}>
+                <h2 className={tw`text-white text-3xl font-semibold mb-4 relative z-10 mt-12`}>
+                    Subscribe to Our Newsletter
+                </h2>
+                <p className={tw`text-gray-300 text-base mb-6 max-w-md mx-auto z-10`}>
                     Stay updated with our latest news and exclusive offers by subscribing to our newsletter.
                 </p>
 
-                {/* Newsletter Form */}
+                {/* Newsletter Form with White Border and Updated Button */}
                 <div
-                    className={tw`flex items-center border border-gray-700 rounded-full overflow-hidden max-w-lg mx-auto`}
+                    className={tw`flex items-center border border-white rounded-full overflow-hidden mx-auto relative z-10 mt-6`}
+                    style={{ maxWidth: '40rem' }}
                 >
                     <input
                         type="email"
                         placeholder="Enter Your Email"
-                        className={tw`w-full px-4 py-3 bg-transparent text-white placeholder-gray-500 focus:outline-none text-sm`}
+                        className={tw`w-full px-6 py-3 bg-transparent text-white placeholder-white focus:outline-none text-md`}
                     />
                     <button
-                        className={tw`bg-blue-600 text-white px-6 py-3 font-medium rounded-full hover:bg-blue-500 transition-all text-sm`}
+                        className={tw`bg-white text-black font-semibold px-10 py-4 rounded-full hover:bg-gray-200 transition-all text-md`}
                     >
                         Submit
                     </button>

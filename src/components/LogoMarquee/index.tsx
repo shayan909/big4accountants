@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { tw } from 'twind';
 
@@ -14,6 +14,7 @@ const logos = [
 
 const LogoMarquee = () => {
     const scrollRef = useRef<HTMLDivElement>(null);
+    const [isVisible, setIsVisible] = useState(true);
 
     useEffect(() => {
         const scrollContainer = scrollRef.current;
@@ -23,6 +24,7 @@ const LogoMarquee = () => {
         const speed = 1; // Smooth, professional scrolling
 
         const scroll = () => {
+            if (!isVisible) return; // Stop the animation when not visible
             scrollAmount += speed;
             if (scrollAmount >= scrollContainer.scrollWidth / 2) {
                 scrollAmount = 0;
@@ -32,15 +34,32 @@ const LogoMarquee = () => {
         };
 
         scroll();
-    }, []);
+
+        // Intersection Observer to detect visibility
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsVisible(entry.isIntersecting); // Set visibility based on intersection
+            },
+            { threshold: 0.5 }, // Trigger when 50% of the section is in view
+        );
+
+        if (scrollContainer) {
+            observer.observe(scrollContainer);
+        }
+
+        // Cleanup observer when component is unmounted
+        return () => {
+            if (scrollContainer) {
+                observer.unobserve(scrollContainer);
+            }
+        };
+    }, [isVisible]);
 
     return (
-        <section className={tw`relative py-20 bg-gradient-to-r from-gray-50 to-gray-100`}>
+        <section className={tw`relative py-20`}>
             {/* Section Header */}
             <div className={tw`text-center mb-12`}>
-                <h2 className={tw`text-4xl md:text-5xl font-bold text-gray-900`}>
-                    Our <span className={tw`text-blue-600`}>Technology Partners</span>
-                </h2>
+                <h2 className={tw`text-4xl md:text-5xl font-bold text-gray-900`}>Our Technology Partners</h2>
                 <p className={tw`text-lg text-gray-600 mt-4 max-w-2xl mx-auto`}>
                     Collaborating with industry-leading technology providers to empower businesses with world-class
                     solutions.

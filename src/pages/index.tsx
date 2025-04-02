@@ -34,12 +34,12 @@ const Home = () => {
             <main>
                 <AboutUs />
                 <ServicesSection />
-                <LogoMarquee />
-                <ServicesSectionTwo />
                 <StandOutSection />
+                <ServicesSectionTwo />
+                <LogoMarquee />
+                <Industries />
                 <MagicalNumbers />
                 <Testimonials />
-                <Industries />
                 <Newsletter />
             </main>
             <Footer />
