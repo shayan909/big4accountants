@@ -18,10 +18,10 @@ const Newsletter = () => {
                     height: '23rem',
                 }}
             >
-                <h2 className={tw`text-white text-3xl font-semibold mb-4 relative z-10 mt-12`}>
+                <h2 className={tw`text-white text-5xl font-semibold mb-4 relative z-10 mt-12`}>
                     Subscribe to Our Newsletter
                 </h2>
-                <p className={tw`text-gray-300 text-base mb-6 max-w-md mx-auto z-10`}>
+                <p className={tw`text-gray-300 text-base text-2xl mb-6 max-w-lg mx-auto z-10 mb-2`}>
                     Stay updated with our latest news and exclusive offers by subscribing to our newsletter.
                 </p>
 

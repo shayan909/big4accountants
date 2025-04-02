@@ -74,7 +74,7 @@ export default function ServicesSection() {
                     variants={staggerContainer}
                 >
                     <motion.h2
-                        className={tw`text-5xl font-bold leading-tight text-[#050505] font-satoshi`}
+                        className={tw`text-6xl font-bold leading-tight text-[#050505] font-satoshi`}
                         variants={fadeInLeft}
                     >
                         <motion.div variants={fadeInLeft}>How We Are</motion.div>
@@ -89,6 +89,7 @@ export default function ServicesSection() {
                         className={tw`text-[#474747] mt-4 max-w-md font-satoshi`}
                         variants={fadeInLeft}
                         transition={{ delay: 0.3 }}
+                        style={{ fontSize: '18px' }}
                     >
                         Our biggest edge is that, through our association with big names in the finance world, we are
                         privy to emerging trends, technologies, and best practices that come with each region and
@@ -126,7 +127,7 @@ export default function ServicesSection() {
                     variants={staggerContainer}
                 >
                     <motion.h3
-                        className={tw`text-3xl font-bold mt-24 font-satoshi`}
+                        className={tw`text-4xl font-bold mt-24 font-satoshi`}
                         style={{ color: 'rgba(4, 8, 234, 1)', textAlign: 'left' }}
                         variants={fadeInRight}
                     >
@@ -136,6 +137,7 @@ export default function ServicesSection() {
                         className={tw`text-gray-300 mt-4 text-left max-w-md mx-auto text-[rgb(71,71,71)] font-satoshi`}
                         variants={fadeInRight}
                         transition={{ delay: 0.1 }}
+                        style={{ fontSize: '18px' }}
                     >
                         Combines deep industry expertise with cutting-edge technology to provide businesses with
                         unmatched financial solutions. We prioritize precision, transparency, and innovation, ensuring
